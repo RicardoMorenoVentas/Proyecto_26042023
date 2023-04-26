@@ -1,0 +1,25 @@
+<h3>Lista de alumnos</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>DNI</th>
+      <th>Horas de formación</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ind of lista_alumnos">
+      <td>{{ind.id}}</td>
+      <td>{{ind.nombre}}</td>
+      <td>{{ind.dni}}</td>
+      <td>{{ind.horas}}</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<button (click)="abrirFormulario()">Abrir formulario alumno</button>
+<br>
+<hr>
+<br>
+<router-outlet></router-outlet>
