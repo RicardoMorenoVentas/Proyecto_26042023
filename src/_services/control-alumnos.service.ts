@@ -37,7 +37,9 @@ export class ControlAlumnosService {
     this._lista_observable.subscribe((values) => {
       values.map((item,ind,arr) => {
         if (item.id == alumn_e.id){
+          // Con este elimino la posición actual
           values.splice(ind,1);
+          // Y lo reintroduzco ya actualizado
           values.splice(ind,0,alumn_e);
         }
       })
