@@ -14,6 +14,8 @@
       <td>{{ind.nombre}}</td>
       <td>{{ind.dni}}</td>
       <td>{{ind.horas}}</td>
+      <button [routerLink]="['/form-alumno']" [queryParams]="{id : ind.id }" routerLinkActive="router-link-active" >🔧</button>
+      <button [routerLink]="['/form-alumno']" [queryParams]="{id : ind.id , forDelete : true }" routerLinkActive="router-link-active" >❌</button>
     </tr>
   </tbody>
 </table>

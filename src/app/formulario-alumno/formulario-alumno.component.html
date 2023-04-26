@@ -1,7 +1,24 @@
-<form [formGroup]="formulario" #nform="ngForm" (ngSubmit)="mandarAlumno()">
-  <p><small>Nombre</small><br><input type="text" formControlName="nombre"></p>
-  <p><small>DNI</small><br><input type="text" formControlName="dni"></p>
-  <p><small>Horas</small><br><input type="number" formControlName="horas"></p>
-  <button type="submit">Mandar alumno</button>
-  <button type="reset">Cancelar</button>
-</form>
+<ng-template #nuevo>
+  <form [formGroup]="formulario" #nform="ngForm" (ngSubmit)="mandarAlumno()">
+    <p><small>Nombre</small><br><input type="text" formControlName="nombre"></p>
+    <p><small>DNI</small><br><input type="text" formControlName="dni"></p>
+    <p><small>Horas</small><br><input type="number" formControlName="horas"></p>
+    <button type="submit">Mandar alumno</button>
+    <button type="reset">Cancelar</button>
+  </form>
+</ng-template>
+
+<ng-template #editar>
+  <form [formGroup]="formulario" #nform="ngForm" (ngSubmit)="actualizarAlumno()">
+    <p><small>Nombre</small><br><input type="text" formControlName="nombre"></p>
+    <p><small>DNI</small><br><input type="text" formControlName="dni"></p>
+    <p><small>Horas</small><br><input type="number" formControlName="horas"></p>
+    <button type="submit">Actualizar alumno</button>
+    <button type="reset">Cancelar</button>
+  </form>
+</ng-template>
+
+<div [ngSwitch]="tipoCaso">
+  <div *ngSwitchCase="1" [ngTemplateOutlet]="nuevo"></div>
+  <div *ngSwitchCase="2" [ngTemplateOutlet]="editar"></div>
+</div>

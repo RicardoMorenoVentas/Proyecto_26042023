@@ -20,13 +20,27 @@ export class ControlAlumnosService {
   public set lista_observable(value: Observable<Alumno[]>) {
     this._lista_observable = value;
   }
+  public get lista_alumnos(): Alumno[] {
+    return this._lista_alumnos;
+  }
+  public set lista_alumnos(value: Alumno[]) {
+    this._lista_alumnos = value;
+  }
 
 
   añadirAlumno(alumn_e: Alumno) {
     alumn_e.id = ++ControlAlumnosService.id_actual;
     this._lista_alumnos.push(alumn_e);
-    /* this._lista_observable.subscribe((valor) => {
-      console.log(valor[valor.length-1]);
-    }); */
+  }
+
+  actualizarAlumno(alumn_e: Alumno){
+    this._lista_observable.subscribe((values) => {
+      values.map((item,ind,arr) => {
+        if (item.id == alumn_e.id){
+          values.splice(ind,1);
+          values.splice(ind,0,alumn_e);
+        }
+      })
+    })
   }
 }

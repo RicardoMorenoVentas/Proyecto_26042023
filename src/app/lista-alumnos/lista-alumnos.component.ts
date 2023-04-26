@@ -13,9 +13,9 @@ export class ListaAlumnosComponent implements OnInit {
   constructor(private _servicio: ControlAlumnosService, private _router : Router){}
 
   ngOnInit(): void {
-      this._servicio.lista_observable.subscribe((valor) => {
-        this._lista_alumnos = valor;
-      })
+      this._servicio.lista_observable.subscribe((values) => {
+        this._lista_alumnos = values;
+      });
   }
 
   public get lista_alumnos(): Alumno[] | undefined {
